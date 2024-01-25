@@ -73,12 +73,16 @@
       .noprint {
         display: none;
       }
+
+      .sticky-top{
+        position: relative;
+      }
     }
   </style>
 </head>
 
 <body class="bg-white">
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-light shadow-sm sticky-top bg-white">
     <div class="container-fluid flex-nowrap">
       <div class="navbar-brand w-100">
         <div class="h5 mb-0">NYU Stern Center for Sustainable Business</div>
@@ -88,13 +92,13 @@
       </div>
     </div>
   </nav>
-  <section class="bg-light noprint" style="height: calc(100vh - 54px);">
+  <section class="bg-light noprint" style="height: calc(100vh - 50px);">
     <div class="container d-flex align-item-center justify-content-center flex-column h-100">
-      <div class="px-5">
-        <div class="h2 display-2 text-center mb-4">
-          About this tool!
+      <div class="px-4">
+        <div class="h2 display-2 text-center mb-2">
+          About the tool!
         </div>
-        <div class="h5 text-center" style="font-size: 1.5rem;">
+        <div class="h5 text-center mb-5" style="font-size: 1.5rem;">
           This Employee Wellbeing monetization tool was developed by NYU Stern Center for Sustainable Business in
           collaboration
           with our apparel company partners using our Return on Sustainability Investment (ROSI™) methodology. This tool
@@ -827,10 +831,10 @@
     <div class="container" id="outputTable">
       <div class="row pt-4 mb-2 " id="reportHeading">
         <div class="col-sm-7">
-          <div class="h5">Monetization&nbsp;Output&nbsp;(2021):</div>
+          <div class="h5">Monetization&nbsp;Output&nbsp;<span data-this-year></span>:</div>
         </div>
         <div class="col-sm-5">
-          <span id="d4" class="h5">####</span>
+          <span id="d4" class="h5">NaN</span>
           <span class="h5">$</span>
         </div>
       </div>
@@ -1392,7 +1396,7 @@
 
           <li>
             <strong>Informational Purposes</strong>
-            <span>You acknowledge and agree that all the material within this workbook (""Content"") is
+            <span>You acknowledge and agree that all the material within this workbook ("Content") is
               solely for general, informational purposes and nothing contained in this workbook may be construed as a
               solicitation, offer, recommendation or representation of suitability or endorsement of any security or
               investment. </span>
@@ -1432,23 +1436,37 @@
       !element.value ? element.classList.add('is-invalid') : element.classList.remove('is-invalid');
     }
 
+    function scrollMainIntoView(){
+      const element = document.getElementById('mainSection');
+      const offset = 50;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      // document.getElementById('mainSection').scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
     function togglePageTwoThree() {
       document.getElementById('inputForm').classList.toggle('show')
       document.getElementById('outputTable').classList.toggle('show')
-      document.getElementById('mainSection').scrollIntoView({behavior:'smooth',block:'start'});
+      scrollMainIntoView()
     }
 
     function togglePageOneTwo() {
       document.getElementById('yearSection').classList.toggle('show')
       document.getElementById('inputForm').classList.toggle('show')
-      document.getElementById('mainSection').scrollIntoView({behavior:'smooth',block:'start'});
+      scrollMainIntoView()
     }
 
     function fillYearDetail() {
       let validForm = true
-      let inputArr = ['previousYear', 'currentYear']
+      const inputArr = ['previousYear', 'currentYear']
       for (let index = 0; index < inputArr.length; index++) {
-        let element = document.getElementById(inputArr[index])
+        const element = document.getElementById(inputArr[index])
         if (!element.value) {
           validForm = false;
           element.classList.add('is-invalid')
@@ -1476,7 +1494,7 @@
 
     function validateForm() {
       let validForm = true;
-      let allField = Array.from(document.forms[0].elements).filter((e) => e.tagName === "INPUT")
+      const allField = Array.from(document.forms[0].elements).filter((e) => e.tagName === "INPUT")
       for (let index = 0; index < allField.length; index++) {
         if (!allField[index].value) {
           validForm = false;
@@ -1489,7 +1507,7 @@
     }
 
     function calculate() {
-      let validattionFlag = validateForm()
+      const validattionFlag = validateForm()
       if (validattionFlag) {
         // hiding error message
         document.getElementById('validationLabel').style.display = 'none';
