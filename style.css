@@ -1,0 +1,69 @@
+/* bootstrap css fixes */
+.input-group-text {
+    width: 30px;
+    justify-content: center;
+  }
+
+  #inputForm,
+  #outputTable,
+  #yearSection {
+    display: none;
+  }
+
+  .form-control {
+    text-align: end;
+  }
+
+  .show {
+    display: block !important;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  .is-valid,
+  .is-invalid {
+    padding-right: .5rem !important;
+    background-image: none !important;
+  }
+
+  @media print {
+    .accordion-item {
+      margin-top: 2rem;
+      border: 2px solid rgba(0, 0, 0, .125) !important;
+    }
+
+    .accordion-item:first-child {
+      margin-top: 0;
+    }
+
+    .accordion-button {
+      color: black !important;
+      box-shadow: none !important;
+    }
+
+    .container {
+      max-width: none;
+    }
+
+    .accordion-collapse {
+      display: block !important;
+    }
+
+    .noprint {
+      display: none;
+    }
+
+    .sticky-top{
+      position: relative;
+    }
+  }

@@ -8,77 +8,9 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <style>
-    /* bootstrap css fixes */
-    .input-group-text {
-      width: 30px;
-      justify-content: center;
-    }
-
-    #inputForm,
-    #outputTable,
-    #yearSection {
-      display: none;
-    }
-
-    .form-control {
-      text-align: end;
-    }
-
-    .show {
-      display: block !important;
-    }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-      -moz-appearance: textfield;
-      appearance: textfield;
-    }
-
-    .is-valid,
-    .is-invalid {
-      padding-right: .5rem !important;
-      background-image: none !important;
-    }
-
-    @media print {
-      .accordion-item {
-        margin-top: 3rem;
-        border: 2px solid rgba(0, 0, 0, .125) !important;
-      }
-
-      .accordion-item:first-child {
-        margin-top: 0;
-      }
-
-      .accordion-button {
-        color: black !important;
-        box-shadow: none !important;
-      }
-
-      .container {
-        max-width: none;
-      }
-
-      .accordion-collapse {
-        display: block !important;
-      }
-
-      .noprint {
-        display: none;
-      }
-
-      .sticky-top{
-        position: relative;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
 </head>
 
 <body class="bg-white">
@@ -119,14 +51,14 @@
               <div>
                 <label class="form-label">Enter previous year</label>
                 <input type="number" min="1950" max="2050" step="1" id="previousYear" class="form-control"
-                  placeholder="2022">
+                  value="2022">
               </div>
             </div>
             <div class="col-sm-5 mb-3">
               <div>
                 <label class="form-label">Enter current year</label>
                 <input type="number" min="1950" max="2050" step="1" id="currentYear" class="form-control"
-                  placeholder="2023">
+                  value="2023">
               </div>
             </div>
             <div class="py-2 text-center bg-white">
@@ -141,7 +73,7 @@
       </div>
     </div>
     <div class="container" id="inputForm">
-      <form class="">
+      <form class="" name="inputForm">
         <!-- <div class="hr"></div> -->
         <div class="h4 mb-4 text-center">Investing in Employee Wellbeing ROSI™ Monetization:</div>
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -829,528 +761,536 @@
       </form>
     </div>
     <div class="container" id="outputTable">
-      <div class="row pt-4 mb-2 " id="reportHeading">
-        <div class="col-sm-7">
-          <div class="h5">Monetization&nbsp;Output&nbsp;<span data-this-year></span>:</div>
-        </div>
-        <div class="col-sm-5">
-          <span id="d4" class="h5">NaN</span>
-          <span class="h5">$</span>
-        </div>
-      </div>
-      <div class="accordion accordion-flush" id="accordionFlushExample2">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingOne2">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseOne2" aria-expanded="true" aria-controls="flush-collapseOne2">
-              Annual Salary Per Employee
-            </button>
-          </h2>
-          <div id="flush-collapseOne2" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne2"
-            data-bs-parent="#accordionFlushExample2">
-            <div class="accordion-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><span data-last-year></span></th>
-                    <th scope="col"><span data-this-year></span></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row" style="min-width: 300px;">Headquarters</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="number" disabled readonly id="d24" name="d24" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="number" disabled readonly id="e24" name="e24" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Other Location (Retail, Plant, etc.)</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d25" name="d25" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e25" name="e25" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+      <form name="outputForm">
+        <div class="h4 mb-4 text-center">Investing in Employee Wellbeing ROSI™ Monetization:</div>
+        <div class="accordion accordion-flush" id="accordionFlushExample2">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne2">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne2" aria-expanded="true" aria-controls="flush-collapseOne2">
+                Annual Salary Per Employee
+              </button>
+            </h2>
+            <div id="flush-collapseOne2" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne2"
+              data-bs-parent="#accordionFlushExample2">
+              <div class="accordion-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"><span data-last-year></span></th>
+                      <th scope="col"><span data-this-year></span></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row" style="min-width: 300px;">Headquarters</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="number" disabled readonly id="d24" name="d24" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="number" disabled readonly id="e24" name="e24" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Other Location (Retail, Plant, etc.)</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d25" name="d25" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e25" name="e25" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo2" aria-expanded="false" aria-controls="flush-collapseTwo2">
+                Cost of Hiring & Turnover
+              </button>
+            </h2>
+            <div id="flush-collapseTwo2" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo2"
+              data-bs-parent="#accordionFlushExample2">
+              <div class="accordion-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"><span data-last-year></span></th>
+                      <th scope="col"><span data-this-year></span></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row" style="min-width: 300px;">Total Employees</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d57" name="d57" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e57" name="e57" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Headquarters Turnover</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d58" name="d58" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e58" name="e58" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Expected Turnover (Industry Average)</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d59" name="d59" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e59" name="e59" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Reduction in Turnover</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d60" name="d60" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e60" name="e60" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Avoided Cost of Hiring </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d61" name="d61" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e61" name="e61" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Avoided Turnover Cost</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d62" name="d62" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e62" name="e62" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="text-muted">
+                      <td colspan="4">Other Location (Retail, Plant, etc.) Turnover</td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Total Employees</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d65" name="d65" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e65" name="e65" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Other Location (Retail, Plant, etc.) Turnover</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d66" name="d66" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e66" name="e66" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Expected Turnover (Industry Average)</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d67" name="d67" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e67" name="e67" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Reduction in Turnover</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d68" name="d68" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e68" name="e68" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Avoided Cost of Hiring </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d69" name="d69" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e69" name="e69" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Avoided Turnover Cost </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d70" name="d70" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e70" name="e70" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="fw-bold">
+                      <td scope="row">Total benefit (cost) from reduced turnover</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d72" name="d72" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e72" name="e72" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree2" aria-expanded="false" aria-controls="flush-collapseThree2">
+                Productivity
+              </button>
+            </h2>
+            <div id="flush-collapseThree2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree2"
+              data-bs-parent="#accordionFlushExample2">
+              <div class="accordion-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"><span data-last-year></span></th>
+                      <th scope="col"><span data-this-year></span></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="text-muted">
+                      <td colspan="4">Headquarters Productivity</td>
+                    </tr>
+                    <tr>
+                      <td scope="row" style="min-width: 300px;">Number of High Performers</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d76" name="d76" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e76" name="e76" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Annual Increase in Productivity</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d77" name="d77" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e77" name="e77" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="text-muted">
+                      <td colspan="4">Other Location (Retail, Plant, etc.) Productivity</td>
+                    </tr>
+                    <tr>
+                      <td scope="row" style="min-width: 300px;">Number of High Performers</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d80" name="d80" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e80" name="e80" class="form-control form-control-sm"
+                            placeholder="">
+                          <!-- <span class="input-group-text" >$</span> -->
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Annual Increase in Productivity</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d81" name="d81" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e81" name="e81" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="fw-bold">
+                      <td scope="row">Total benefit (cost) from productive employees</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d83" name="d83" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e83" name="e83" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseFour2" aria-expanded="false" aria-controls="flush-collapseFour2">
+                Cost of Direct Employee Well-being Initiatives
+              </button>
+            </h2>
+            <div id="flush-collapseFour2" class="accordion-collapse collapse" aria-labelledby="flush-headingFour2"
+              data-bs-parent="#accordionFlushExample2">
+              <div class="accordion-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"><span data-last-year></span></th>
+                      <th scope="col"><span data-this-year></span></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="fw-bold">
+                      <td scope="row">Total Cost of Paid Time Off</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d86" name="d86" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e86" name="e86" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="fw-bold">
+                      <td scope="row">Total benefit (cost) from direct employee well-being initiatives</td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="d88" name="d88" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="input-group input-group-sm">
+                          <input type="text" disabled readonly id="e88" name="e88" class="form-control form-control-sm"
+                            placeholder="">
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingTwo2">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseTwo2" aria-expanded="false" aria-controls="flush-collapseTwo2">
-              Cost of Hiring & Turnover
-            </button>
-          </h2>
-          <div id="flush-collapseTwo2" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo2"
-            data-bs-parent="#accordionFlushExample2">
-            <div class="accordion-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><span data-last-year></span></th>
-                    <th scope="col"><span data-this-year></span></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row" style="min-width: 300px;">Total Employees</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d57" name="d57" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e57" name="e57" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Headquarters Turnover</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d58" name="d58" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e58" name="e58" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Expected Turnover (Industry Average)</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d59" name="d59" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e59" name="e59" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Reduction in Turnover</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d60" name="d60" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e60" name="e60" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Avoided Cost of Hiring </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d61" name="d61" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e61" name="e61" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Avoided Turnover Cost</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d62" name="d62" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e62" name="e62" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr class="text-muted">
-                    <td colspan="4">Other Location (Retail, Plant, etc.) Turnover</td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Total Employees</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d65" name="d65" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e65" name="e65" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Other Location (Retail, Plant, etc.) Turnover</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d66" name="d66" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e66" name="e66" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Expected Turnover (Industry Average)</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d67" name="d67" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e67" name="e67" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Reduction in Turnover</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d68" name="d68" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e68" name="e68" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Avoided Cost of Hiring </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d69" name="d69" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e69" name="e69" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Avoided Turnover Cost </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d70" name="d70" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e70" name="e70" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr class="fw-bold">
-                    <td scope="row">Total benefit (cost) from reduced turnover</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d72" name="d72" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e72" name="e72" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="row px-3 pt-2" id="reportHeading"  style="border-top: 1px solid rgba(0,0,0,.125);">
+          <div class="col-sm-7">
+            <div class="h5 mb-0">Monetization&nbsp;Output&nbsp;<span data-this-year></span></div>
+            <div style="line-height: 1;font-size: 12px;font-style: italic;">
+              <span >*This represents an estimated cost, providing an approximation of the expected expenses.</span>
             </div>
           </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingThree2">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseThree2" aria-expanded="false" aria-controls="flush-collapseThree2">
-              Productivity
-            </button>
-          </h2>
-          <div id="flush-collapseThree2" class="accordion-collapse collapse" aria-labelledby="flush-headingThree2"
-            data-bs-parent="#accordionFlushExample2">
-            <div class="accordion-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><span data-last-year></span></th>
-                    <th scope="col"><span data-this-year></span></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="text-muted">
-                    <td colspan="4">Headquarters Productivity</td>
-                  </tr>
-                  <tr>
-                    <td scope="row" style="min-width: 300px;">Number of High Performers</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d76" name="d76" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e76" name="e76" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Annual Increase in Productivity</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d77" name="d77" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e77" name="e77" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr class="text-muted">
-                    <td colspan="4">Other Location (Retail, Plant, etc.) Productivity</td>
-                  </tr>
-                  <tr>
-                    <td scope="row" style="min-width: 300px;">Number of High Performers</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d80" name="d80" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e80" name="e80" class="form-control form-control-sm"
-                          placeholder="">
-                        <!-- <span class="input-group-text" >$</span> -->
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td scope="row">Annual Increase in Productivity</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d81" name="d81" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e81" name="e81" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr class="fw-bold">
-                    <td scope="row">Total benefit (cost) from productive employees</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d83" name="d83" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e83" name="e83" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="col-sm-5 text-end">
+            <span class="h5">$</span>
+            <span id="d4" class="h5">NaN</span>
           </div>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingFour2">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseFour2" aria-expanded="false" aria-controls="flush-collapseFour2">
-              Cost of Direct Employee Well-being Initiatives
-            </button>
-          </h2>
-          <div id="flush-collapseFour2" class="accordion-collapse collapse" aria-labelledby="flush-headingFour2"
-            data-bs-parent="#accordionFlushExample2">
-            <div class="accordion-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col"><span data-last-year></span></th>
-                    <th scope="col"><span data-this-year></span></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="fw-bold">
-                    <td scope="row">Total Cost of Paid Time Off</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d86" name="d86" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e86" name="e86" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                  <tr class="fw-bold">
-                    <td scope="row">Total benefit (cost) from direct employee well-being initiatives</td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="d88" name="d88" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="input-group input-group-sm">
-                        <input type="text" disabled readonly id="e88" name="e88" class="form-control form-control-sm"
-                          placeholder="">
-                        <span class="input-group-text">$</span>
-                      </div>
-                    </td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+        <div class="py-2 text-center bg-white">
+          <button type="button" class="btn btn-danger btn-danger-sm noprint" onclick="togglePageTwoThree()"
+            id="backBtn">Back</button>
+          <button type="button" class="btn btn-primary btn-primary-sm noprint" onclick="window.print()"
+            id="printButton">Print</button>
+          <button type="button" class="btn btn-primary btn-primary-sm noprint" onclick="sendMail()"
+            id="mailButton">Mail</button>
         </div>
-      </div>
-      <div class="py-2 text-center bg-white" style="border-top: 1px solid rgba(0,0,0,.125);">
-        <button type="button" class="btn btn-danger btn-danger-sm noprint" onclick="togglePageTwoThree()"
-          id="backBtn">Back</button>
-        <button type="button" class="btn btn-primary btn-primary-sm noprint" onclick="window.print()"
-          id="backBtn">Print</button>
-      </div>
+      </form>
     </div>
   </section>
   <section class="bg-light py-4" style="text-align: justify;">
@@ -1425,145 +1365,7 @@
       </div>
     </div>
   </section>
-  <script>
-    window.onload = () => {
-      document.querySelectorAll('input').forEach((e) => {
-        e.addEventListener('blur', ($event) => checkInputValidation($event.target))
-      })
-    }
-
-    function checkInputValidation(element) {
-      !element.value ? element.classList.add('is-invalid') : element.classList.remove('is-invalid');
-    }
-
-    function scrollMainIntoView(){
-      const element = document.getElementById('mainSection');
-      const offset = 50;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      // document.getElementById('mainSection').scrollIntoView({behavior:'smooth',block:'start'});
-    }
-
-    function togglePageTwoThree() {
-      document.getElementById('inputForm').classList.toggle('show')
-      document.getElementById('outputTable').classList.toggle('show')
-      scrollMainIntoView()
-    }
-
-    function togglePageOneTwo() {
-      document.getElementById('yearSection').classList.toggle('show')
-      document.getElementById('inputForm').classList.toggle('show')
-      scrollMainIntoView()
-    }
-
-    function fillYearDetail() {
-      let validForm = true
-      const inputArr = ['previousYear', 'currentYear']
-      for (let index = 0; index < inputArr.length; index++) {
-        const element = document.getElementById(inputArr[index])
-        if (!element.value) {
-          validForm = false;
-          element.classList.add('is-invalid')
-        } else {
-          element.classList.remove('is-invalid')
-        }
-      }
-      if (validForm) {
-        document.getElementById('validationLabelyear').style.display = 'none'
-        setYear()
-        togglePageOneTwo();
-      } else {
-        document.getElementById('validationLabelyear').style.display = 'block'
-      }
-    }
-
-    function setYear() {
-      document.querySelectorAll('[data-last-year]').forEach(e => {
-        e.innerText = "Year: " + document.getElementById('previousYear').value;
-      })
-      document.querySelectorAll('[data-this-year]').forEach(e => {
-        e.innerText = "Year: " + document.getElementById('currentYear').value;
-      })
-    }
-
-    function validateForm() {
-      let validForm = true;
-      const allField = Array.from(document.forms[0].elements).filter((e) => e.tagName === "INPUT")
-      for (let index = 0; index < allField.length; index++) {
-        if (!allField[index].value) {
-          validForm = false;
-          allField[index].classList.add('is-invalid')
-        } else {
-          allField[index].classList.remove('is-invalid')
-        }
-      }
-      return validForm;
-    }
-
-    function calculate() {
-      const validattionFlag = validateForm()
-      if (validattionFlag) {
-        // hiding error message
-        document.getElementById('validationLabel').style.display = 'none';
-        d24.value = ((+d14.value) * (+d18.value) * (+d19.value)).toFixed(2);
-        e24.value = ((+e14.value) * (+e18.value) * (+e19.value)).toFixed(2);
-        d25.value = ((+d15.value) * (+d20.value) * (+d21.value)).toFixed(2);
-        e25.value = ((+e15.value) * (+e20.value) * (+e21.value)).toFixed(2);
-        d57.value = (+d9.value).toFixed(2);
-        e57.value = (+e9.value).toFixed(2);
-        d58.value = ((+d57.value) * (+d28.value / 100) * (+d10.value / 100)).toFixed(2);
-        e58.value = ((+e57.value) * (+e28.value / 100) * (+e10.value / 100)).toFixed(2);
-        d59.value = ((+d57.value) * (+d31.value / 100) * (+d10.value / 100)).toFixed(2);
-        e59.value = ((+e57.value) * (+e31.value / 100) * (+e10.value / 100)).toFixed(2);
-        d60.value = ((+d59.value) - (+d58.value)).toFixed(2);
-        e60.value = ((+e59.value) - (+e58.value)).toFixed(2);
-        d61.value = ((+d60.value) * (+d39.value)).toFixed(2);
-        e61.value = ((+e60.value) * (+e39.value)).toFixed(2);
-        d62.value = ((+d60.value) * ((+d24.value) * (+d35.value / 100))).toFixed(2);
-        e62.value = ((+e60.value) * ((+e24.value) * (+e35.value / 100))).toFixed(2);
-        d65.value = (+d9.value).toFixed(2);
-        e65.value = (+e9.value).toFixed(2);
-        d66.value = ((+d65.value) * (+d29.value / 100) * (+d11.value / 100)).toFixed(2);
-        e66.value = ((+e65.value) * (+e29.value / 100) * (+e11.value / 100)).toFixed(2);
-        d67.value = ((+d65.value) * (+d32.value / 100) * (+d11.value / 100)).toFixed(2);
-        e67.value = ((+e65.value) * (+e32.value / 100) * (+e11.value / 100)).toFixed(2);
-        d68.value = ((+d67.value) - (+d66.value)).toFixed(2);
-        e68.value = ((+e67.value) - (+e66.value)).toFixed(2);
-        d69.value = ((+d68.value) * (+d40.value)).toFixed(2);
-        e69.value = ((+e68.value) * (+e40.value)).toFixed(2);
-        d70.value = ((+d68.value) * ((+d36.value / 100) * (+d25.value))).toFixed(2);
-        e70.value = ((+e68.value) * ((+e36.value / 100) * (+e25.value))).toFixed(2);
-        d72.value = ((+d69.value) + (+d62.value) + (+d61.value) + (+d70.value)).toFixed(2);
-        e72.value = ((+e69.value) + (+e62.value) + (+e61.value) + (+e70.value)).toFixed(2);
-        d76.value = ((+d9.value) * (+d45.value / 100) * (+d10.value / 100)).toFixed(2);
-        e76.value = ((+e9.value) * (+e45.value / 100) * (+e10.value / 100)).toFixed(2);
-        d77.value = ((+d76.value) * ((+d44.value / 100) * (+d24.value))).toFixed(2);
-        e77.value = ((+e76.value) * ((+e44.value / 100) * (+e24.value))).toFixed(2);
-        d80.value = ((+d9.value) * (+d48.value / 100) * (+d11.value / 100)).toFixed(2);
-        e80.value = ((+e9.value) * (+e48.value / 100) * (+e11.value / 100)).toFixed(2);
-        d81.value = ((+d80.value) * ((+d47.value / 100) * (+d25.value))).toFixed(2);
-        e81.value = ((+e80.value) * ((+e47.value / 100) * (+e25.value))).toFixed(2);
-        d83.value = ((+d81.value) + (+d77.value)).toFixed(2);
-        e83.value = ((+e81.value) + (+e77.value)).toFixed(2);
-        d86.value = (((((+d24.value) / (5 * (+d19.value))) * (+d52.value)) * ((+d9.value) * (+d10.value / 100))) + ((((+d25.value) / (7 * (+d21.value))) * (+d52.value)) * ((+d9.value) * (+d11.value / 100)))).toFixed(2);
-        e86.value = (((((+e24.value) / (5 * (+e19.value))) * (+e52.value)) * ((+e9.value) * (+e10.value / 100))) + ((((+e25.value) / (7 * (+e21.value))) * (+e52.value)) * ((+e9.value) * (+e11.value / 100)))).toFixed(2);
-        d88.value = (+d86.value).toFixed(2);
-        e88.value = (+e86.value).toFixed(2);
-        //Printing final value to head section. 
-        document.getElementById('d4').innerText = ((+e83.value) + (+e72.value) + (+e88.value)).toFixed(2);
-        // toggling page after calculation is successful
-        togglePageTwoThree();
-      } else {
-        document.getElementById('validationLabel').style.display = 'block';
-      }
-    }
-  </script>
+  <script src="myscript.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
