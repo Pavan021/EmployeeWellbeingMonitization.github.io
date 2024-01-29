@@ -1,69 +1,76 @@
 /* bootstrap css fixes */
+.no-style{
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+
 .input-group-text {
     width: 30px;
     justify-content: center;
-  }
+}
 
-  #inputForm,
-  #outputTable,
-  #yearSection {
+#inputForm,
+#outputTable,
+#yearSection {
     display: none;
-  }
+}
 
-  .form-control {
+.form-control {
     text-align: end;
-  }
+}
 
-  .show {
+.show {
     display: block !important;
-  }
+}
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
-  }
+}
 
-  /* Firefox */
-  input[type=number] {
+/* Firefox */
+input[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
-  }
+}
 
-  .is-valid,
-  .is-invalid {
+.is-valid,
+.is-invalid {
     padding-right: .5rem !important;
     background-image: none !important;
-  }
+}
 
-  @media print {
+@media print {
     .accordion-item {
-      margin-top: 2rem;
-      border: 2px solid rgba(0, 0, 0, .125) !important;
+        margin-top: 2rem;
+        border: 2px solid rgba(0, 0, 0, .125) !important;
     }
 
     .accordion-item:first-child {
-      margin-top: 0;
+        margin-top: 0;
     }
 
     .accordion-button {
-      color: black !important;
-      box-shadow: none !important;
+        color: black !important;
+        box-shadow: none !important;
     }
 
     .container {
-      max-width: none;
+        max-width: none;
     }
 
     .accordion-collapse {
-      display: block !important;
+        display: block !important;
     }
 
     .noprint {
-      display: none;
+        display: none;
     }
 
-    .sticky-top{
-      position: relative;
+    .sticky-top {
+        position: relative;
     }
-  }
+}
