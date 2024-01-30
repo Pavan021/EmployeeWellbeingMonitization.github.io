@@ -1,19 +1,50 @@
 // init emailjs
-(function(){
-    emailjs.init("qP5xofdIk09EzRZL-");
+(function () {
+  emailjs.init("qP5xofdIk09EzRZL-");
 })();
 
 window.onload = () => {
+  // initializing form
+  let localData = JSON.parse(localStorage.getItem('data')); 
+  Object.keys(localData).forEach(id=>{
+    document.getElementById(id).value = localData[id]
+  })
+  // form initializing end
   document.querySelectorAll('input').forEach((e) => {
     e.addEventListener('blur', ($event) => checkInputValidation($event.target))
   })
+}
+
+function validatePercentage(field) {
+  let elName = field.name;
+  if (field.value >= 0 && field.value <= 100) {
+    // switch (elName) {
+    //   case 'd10':
+    //     d11.value = 100 - d10.value
+    //     break;
+    //   case 'd11':
+    //     d10.value = 100 - d11.value
+    //     break;
+    //   case 'e10':
+    //     e11.value = 100 - e10.value
+    //     break;
+    //   case 'e11':
+    //     e10.value = 100 - e11.value
+    //     break;
+    //   default:
+    //     break;
+    // }
+  } else {
+    alert('Value must be between 0 to 100.')
+    field.value = '';
+  }
 }
 
 function checkInputValidation(element) {
   !element.value ? element.classList.add('is-invalid') : element.classList.remove('is-invalid');
 }
 
-function scrollMainIntoView(){
+function scrollMainIntoView() {
   const element = document.getElementById('mainSection');
   const offset = 50;
   const bodyRect = document.body.getBoundingClientRect().top;
@@ -24,7 +55,6 @@ function scrollMainIntoView(){
     top: offsetPosition,
     behavior: 'smooth'
   });
-  // document.getElementById('mainSection').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function togglePageTwoThree() {
@@ -39,23 +69,62 @@ function togglePageOneTwo() {
   scrollMainIntoView()
 }
 
-function sendMail(){
-    let userMail = prompt('Please enter your email!')
+function validateEmail() {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const flag = re.test(String(usermail.value).toLowerCase());
+  flag ? usermail.classList.remove('is-invalid') : usermail.classList.add('is-invalid');
+  return flag;
+}
+
+function validateName() {
+  const flag = username.value.length >= 5;
+  flag ? username.classList.remove('is-invalid') : username.classList.add('is-invalid');
+  return flag;
+}
+
+function SaveDraft(){
+  let ask = confirm("This action will store the form values on your local machine. Are you certain you want to save the entered values?")
+  if(ask){
     let data = {
-        from_name:'NYU|STERN TEAM',
-        to_email:userMail,
-        last_year:'Year:'+ document.getElementById('previousYear').value,
-        this_year:'Year:'+ document.getElementById('currentYear').value,
-        d4:document.getElementById('d4').innerText,
+      previousYear: document.getElementById('previousYear').value,
+      currentYear: document.getElementById('currentYear').value,
     }
+    Array.from(document.inputForm.elements)
+      .filter((e) => e.tagName === "INPUT")
+      .forEach(e => data[e.name] = e.value);
 
+    localStorage.setItem('data',JSON.stringify(data))
+  } 
+}
+
+function sendMail() {
+  let validmail = validateEmail();
+  let validname = validateName();
+  if (validmail && validname) {
+    // closing Modal
+    closeModal.click();
+    validationLabelmail.style.display = 'none';
+    let data = {
+      from_name: 'NYU|STERN TEAM',
+      to_email: usermail.value,
+      to_name: username.value,
+      last_year: 'Year:' + document.getElementById('previousYear').value,
+      this_year: 'Year:' + document.getElementById('currentYear').value,
+      d4: document.getElementById('d4').innerText,
+    }
+    
     Array.from(document.outputForm.elements)
-        .filter((e) => e.tagName === "INPUT")
-        .forEach(e => data[e.name] = e.value);
-
-    emailjs.send("service_e1vtpkc", "template_u1yjupb", data, 'qP5xofdIk09EzRZL-')
-        .then(r=>console.log(r))
-        .catch(e=>console.log(e));
+      .filter((e) => e.tagName === "INPUT")
+      .forEach(e => data[e.name] = e.value);
+    
+      emailjs.send("service_e1vtpkc", "template_u1yjupb", data)
+      .then(r => {
+        alert("Mail send successfully to "+usermail.value+".")
+      })
+      .catch(e => alert("Some error occured while sending mail. Please try again!"));
+  } else {
+    validationLabelmail.style.display = 'block';
+  }
 }
 
 function fillYearDetail() {
@@ -157,9 +226,38 @@ function calculate() {
     e88.value = (+e86.value).toFixed(2);
     //Printing final value to head section. 
     document.getElementById('d4').innerText = numberWithCommas(((+e83.value) + (+e72.value) + (+e88.value)).toFixed(2));
+    // fixing currency value.
+    fixCurrency()
     // toggling page after calculation is successful
     togglePageTwoThree();
   } else {
     document.getElementById('validationLabel').style.display = 'block';
+  }
+
+  function fixCurrency() {
+    d24.value = numberWithCommas(d24.value)
+    e24.value = numberWithCommas(e24.value)
+    d25.value = numberWithCommas(d25.value)
+    e25.value = numberWithCommas(e25.value)
+    d61.value = numberWithCommas(d61.value)
+    e61.value = numberWithCommas(e61.value)
+    d62.value = numberWithCommas(d62.value)
+    e62.value = numberWithCommas(e62.value)
+    d69.value = numberWithCommas(d69.value)
+    e69.value = numberWithCommas(e69.value)
+    d70.value = numberWithCommas(d70.value)
+    e70.value = numberWithCommas(e70.value)
+    d72.value = numberWithCommas(d72.value)
+    e72.value = numberWithCommas(e72.value)
+    d77.value = numberWithCommas(d77.value)
+    e77.value = numberWithCommas(e77.value)
+    d81.value = numberWithCommas(d81.value)
+    e81.value = numberWithCommas(e81.value)
+    d83.value = numberWithCommas(d83.value)
+    e83.value = numberWithCommas(e83.value)
+    d86.value = numberWithCommas(d86.value)
+    e86.value = numberWithCommas(e86.value)
+    d88.value = numberWithCommas(d88.value)
+    e88.value = numberWithCommas(e88.value)
   }
 }
