@@ -1341,7 +1341,7 @@
             id="backBtn">Back</button>
           <button type="button" class="btn btn-primary btn-primary-sm noprint" onclick="window.print()"
             id="printButton">Print</button>
-          <button type="button" class="btn btn-primary btn-primary-sm noprint" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          <button type="button" class="btn btn-primary btn-primary-sm noprint d-none" data-bs-toggle="modal" data-bs-target="#exampleModal"
             id="mailButton">Mail</button>
         </div>
       </form>
@@ -1440,7 +1440,7 @@
         </div>
         <div class="modal-footer justify-content-center">
           <button type="button" class="btn btn-secondary" id="closeModal" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary d-none" onclick="sendMail()">Send Mail</button>
+          <button type="button" class="btn btn-primary" onclick="sendMail()">Send Mail</button>
           <div class="w-100 text-danger text-center" style="font-size: 1rem;display: none;" id="validationLabelmail">
             *Please fill correct details*
           </div>
