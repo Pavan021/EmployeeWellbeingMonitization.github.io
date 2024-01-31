@@ -6,10 +6,12 @@
 window.onload = () => {
   // initializing form
   let localData = JSON.parse(localStorage.getItem('data')); 
-  Object.keys(localData).forEach(id=>{
-    document.getElementById(id).value = localData[id]
-  })
-  // form initializing end
+  if(localData){
+    Object.keys(localData).forEach(id=>{
+      document.getElementById(id).value = localData[id]
+    })
+  }
+
   document.querySelectorAll('input').forEach((e) => {
     e.addEventListener('blur', ($event) => checkInputValidation($event.target))
   })
