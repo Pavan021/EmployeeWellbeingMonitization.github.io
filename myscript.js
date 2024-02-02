@@ -113,6 +113,7 @@ function sendMail() {
       last_year: 'Year:' + document.getElementById('previousYear').value,
       this_year: 'Year:' + document.getElementById('currentYear').value,
       d4: document.getElementById('d4').innerText,
+      e4: document.getElementById('e4').innerText,
     }
     
     Array.from(document.outputForm.elements)
@@ -227,7 +228,8 @@ function calculate() {
     d88.value = (+d86.value).toFixed(2);
     e88.value = (+e86.value).toFixed(2);
     //Printing final value to head section. 
-    document.getElementById('d4').innerText = numberWithCommas(((+e83.value) + (+e72.value) + (+e88.value)).toFixed(2));
+    document.getElementById('d4').innerText = numberWithCommas(((+d83.value) + (+d72.value) + (+d88.value)).toFixed(2));
+    document.getElementById('e4').innerText = numberWithCommas(((+e83.value) + (+e72.value) + (+e88.value)).toFixed(2));
     // fixing currency value.
     fixCurrency()
     // toggling page after calculation is successful
