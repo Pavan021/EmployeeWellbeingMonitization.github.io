@@ -2103,6 +2103,43 @@
                       </div>
                       <div class="col-1"></div>
                     </div>
+                    <!-- newly added line -->
+                    <div class="row">
+                      <div class="col-5">
+                        <label class="col-form-label"
+                          >Annual cost of sustainability initiatives per
+                          employee (e.g. volunteering ,well-being or DEI
+                          trainings)</label
+                        >
+                      </div>
+                      <div class="col-3">
+                        <div class="input-group input-group-sm">
+                          <input
+                            type="number"
+                            class="form-control form-control-sm"
+                            id="annualCostYearOne"
+                            name="annualCostYearOne"
+                            value="15"
+                            placeholder="Enter Annual Cost per Employee"
+                          />
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="input-group input-group-sm">
+                          <input
+                            type="number"
+                            class="form-control form-control-sm"
+                            id="annualCostYearTwo"
+                            name="annualCostYearTwo"
+                            value="15"
+                            placeholder="Enter paid time offs days"
+                          />
+                          <span class="input-group-text">$</span>
+                        </div>
+                      </div>
+                      <div class="col-1"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2992,6 +3029,42 @@
                         </td>
                         <td></td>
                       </tr>
+                      <!-- newly added line starts-->
+                      <tr class="fw-bold">
+                        <td scope="row">
+                          Total Cost Of Sustainability Initiatives
+                        </td>
+                        <td>
+                          <div class="input-group input-group-sm">
+                            <input
+                              type="text"
+                              disabled
+                              readonly
+                              id="TotalCostYearOneOutput"
+                              name="TotalCostYearOneOutput"
+                              class="form-control form-control-sm"
+                              placeholder=""
+                            />
+                            <span class="input-group-text">$</span>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="input-group input-group-sm">
+                            <input
+                              type="text"
+                              disabled
+                              readonly
+                              id="TotalCostYearTwoOutput"
+                              name="TotalCostYearTwoOutput"
+                              class="form-control form-control-sm"
+                              placeholder=""
+                            />
+                            <span class="input-group-text">$</span>
+                          </div>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <!-- newly added line ends -->
                       <tr class="fw-bold">
                         <td scope="row">
                           Total benefit (cost) from direct employee well-being
