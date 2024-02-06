@@ -277,14 +277,17 @@ function calculate() {
         +e52.value *
         (+e9.value * (+e11.value / 100))
     ).toFixed(2);
-    d88.value = (+d86.value).toFixed(2);
-    e88.value = (+e86.value).toFixed(2);
+    d88.value = (+d53.value * +d57.value).toFixed(2);
+    e88.value = (+e53.value * +e57.value).toFixed(2);
+
+    d89.value = (+d86.value + +d88.value).toFixed(2);
+    e89.value = (+e86.value + +e88.value).toFixed(2);
     //Printing final value to head section.
     document.getElementById("d4").innerText = numberWithCommas(
-      (+d83.value + +d72.value + +d88.value).toFixed(2)
+      (+d83.value + +d72.value + +d89.value).toFixed(2)
     );
     document.getElementById("e4").innerText = numberWithCommas(
-      (+e83.value + +e72.value + +e88.value).toFixed(2)
+      (+e83.value + +e72.value + +e89.value).toFixed(2)
     );
     // fixing currency value.
     fixCurrency();
@@ -319,5 +322,7 @@ function calculate() {
     e86.value = numberWithCommas(e86.value);
     d88.value = numberWithCommas(d88.value);
     e88.value = numberWithCommas(e88.value);
+    d89.value = numberWithCommas(d89.value);
+    e89.value = numberWithCommas(e89.value);
   }
 }
