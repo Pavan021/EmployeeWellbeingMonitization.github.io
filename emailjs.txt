@@ -1,0 +1,264 @@
+<style>
+  td {
+    padding: .25rem;
+  }
+</style>
+<div style="width: 100%; display: flex; align-items: center; flex-direction: column; justify-content: center;">
+  <div style="max-width: 1080px;">
+    <p style="text-align: left;"><span style="font-size: 12pt;"> Hello {{to_name}}, please locate the Monetization
+        Output report below. </span></p>
+    <h3 style="text-align: center;"><br>Investing in Employee Wellbeing ROSI&trade; Monetization:</h3>
+    <table style="border-collapse: collapse; width: 99.9913%; height: 79.1667px;" border="1">
+      <colgroup>
+        <col style="width: 50%;">
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+      </colgroup>
+      <tbody>
+        <tr style="height: 20.0278px;">
+          <td style="height: 20.0278px; text-align: center; background-color: rgb(236, 240, 241);" colspan="3">
+            <strong>Annual Salary Per Employee</strong></td>
+        </tr>
+        <tr style="height: 20.7917px;">
+          <td style="height: 20.7917px; background-color: rgb(236, 240, 241);">#</td>
+          <td style="height: 20.7917px; background-color: rgb(236, 240, 241);">{{last_year}}</td>
+          <td style="height: 20.7917px; background-color: rgb(236, 240, 241);">{{this_year}}</td>
+        </tr>
+        <tr style="height: 20.0278px;">
+          <td style="height: 20.0278px;">Headquarters</td>
+          <td style="height: 20.0278px; text-align: right;">${{d24}}</td>
+          <td style="height: 20.0278px; text-align: right;">${{e24}}</td>
+        </tr>
+        <tr style="height: 18.3194px;">
+          <td style="height: 18.3194px;">Other Location (Retail, Plant, etc.)</td>
+          <td style="height: 18.3194px; text-align: right;">${{d25}}</td>
+          <td style="height: 18.3194px; text-align: right;">${{e25}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <table style="border-collapse: collapse; width: 99.9913%; height: 321.887px;" border="1">
+      <colgroup>
+        <col style="width: 50%;">
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+      </colgroup>
+      <tbody>
+        <tr style="height: 19.2593px;">
+          <td style="text-align: center; background-color: rgb(236, 240, 241); height: 19.2593px;" colspan="3">
+            <strong>Cost of Hiring &amp; Turnover</strong></td>
+        </tr>
+        <tr style="height: 20.0116px;">
+          <td style="text-align: left; background-color: rgb(236, 240, 241); height: 20.0116px;">#</td>
+          <td style="height: 20.0116px; background-color: rgb(236, 240, 241);">{{last_year}}</td>
+          <td style="height: 20.0116px; background-color: rgb(236, 240, 241);">{{this_year}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Total Employees</td>
+          <td style="height: 19.2593px; text-align: right;">{{d57}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e57}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Headquarters Turnover</td>
+          <td style="height: 19.2593px; text-align: right;">{{d58}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e58}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Expected Turnover (Industry Average)</td>
+          <td style="height: 19.2593px; text-align: right;">{{d59}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e59}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Reduction in Turnover</td>
+          <td style="height: 19.2593px; text-align: right;">{{d60}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e60}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Avoided Cost of Hiring</td>
+          <td style="height: 19.2593px; text-align: right;">${{d61}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e61}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Avoided Turnover Cost</td>
+          <td style="height: 19.2593px; text-align: right;">${{d62}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e62}}</td>
+        </tr>
+        <tr style="height: 32.2454px;">
+          <td style="height: 32.2454px; vertical-align: bottom; text-align: left;" colspan="3"><span
+              style="color: rgb(126, 140, 141);"><em>Other Location (Retail, Plant, etc.) Turnover:</em></span></td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Total Employees</td>
+          <td style="height: 19.2593px; text-align: right;">{{d65}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e65}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Other Location (Retail, Plant, etc.) Turnover</td>
+          <td style="height: 19.2593px; text-align: right;">{{d66}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e66}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Expected Turnover (Industry Average)</td>
+          <td style="height: 19.2593px; text-align: right;">{{d67}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e67}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Reduction in Turnover</td>
+          <td style="height: 19.2593px; text-align: right;">{{d68}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e68}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Avoided Cost of Hiring</td>
+          <td style="height: 19.2593px; text-align: right;">${{d69}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e69}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Avoided Turnover Cost</td>
+          <td style="height: 19.2593px; text-align: right;">${{d70}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e70}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Total benefit (cost) from reduced turnover</td>
+          <td style="height: 19.2593px; text-align: right;">${{d72}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e72}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <table style="border-collapse: collapse; width: 100.031%; height: 200.058px;" border="1">
+      <colgroup>
+        <col style="width: 50%;">
+        <col style="width: 25%;">
+        <col style="width: 25%;">
+      </colgroup>
+      <tbody>
+        <tr style="height: 19.2593px;">
+          <td style="text-align: center; background-color: rgb(236, 240, 241); height: 19.2593px;" colspan="3">
+            <strong>Productivity</strong></td>
+        </tr>
+        <tr style="height: 20.0116px;">
+          <td style="text-align: left; background-color: rgb(236, 240, 241); height: 20.0116px;">#</td>
+          <td style="height: 20.0116px; background-color: rgb(236, 240, 241);">{{last_year}}</td>
+          <td style="height: 20.0116px; background-color: rgb(236, 240, 241);">{{this_year}}</td>
+        </tr>
+        <tr style="height: 32.2454px;">
+          <td style="height: 32.2454px; vertical-align: bottom;"><span
+              style="color: rgb(126, 140, 141);"><em>Headquarters Productivity:</em></span></td>
+          <td style="height: 32.2454px;">&nbsp;</td>
+          <td style="height: 32.2454px;">&nbsp;</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Number of High Performers</td>
+          <td style="height: 19.2593px; text-align: right;">{{d76}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e76}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Annual Increase in Productivity</td>
+          <td style="height: 19.2593px; text-align: right;">${{d77}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e77}}</td>
+        </tr>
+        <tr style="height: 32.2454px;">
+          <td style="height: 32.2454px; vertical-align: bottom; text-align: left;" colspan="3"><span
+              style="color: rgb(126, 140, 141);"><em>Other Location (Retail, Plant, etc.) Productivity:</em></span></td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Number of High Performers</td>
+          <td style="height: 19.2593px; text-align: right;">{{d80}}</td>
+          <td style="height: 19.2593px; text-align: right;">{{e80}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Annual Increase in Productivity</td>
+          <td style="height: 19.2593px; text-align: right;">${{d81}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e81}}</td>
+        </tr>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px;">Total benefit (cost) from productive employees</td>
+          <td style="height: 19.2593px; text-align: right;">${{d83}}</td>
+          <td style="height: 19.2593px; text-align: right;">${{e83}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>&nbsp;</p>
+    <table style="border-collapse: collapse; width: 100.031%; height: 88.4723px;" border="1">
+      <colgroup>
+        <col style="width: 50.0257%;">
+        <col style="width: 25.0129%;">
+        <col style="width: 25.0129%;">
+      </colgroup>
+      <tbody>
+        <tr style="height: 19.25px;">
+          <td style="text-align: center; background-color: rgb(236, 240, 241); height: 19.25px;" colspan="3">
+            <strong>Cost of Direct Employee Well-being Initiatives</strong></td>
+        </tr>
+        <tr style="height: 20px;">
+          <td style="text-align: left; background-color: rgb(236, 240, 241); height: 20px;">#</td>
+          <td style="height: 20px; background-color: rgb(236, 240, 241);">{{last_year}}</td>
+          <td style="height: 20px; background-color: rgb(236, 240, 241);">{{this_year}}</td>
+        </tr>
+        <tr style="height: 19.25px;">
+          <td style="height: 19.25px;">Total Cost of Paid Time Off</td>
+          <td style="height: 19.25px; text-align: right;">${{d86}}</td>
+          <td style="height: 19.25px; text-align: right;">${{e86}}</td>
+        </tr>
+        <tr style="height: 18.6667px;">
+          <td class="xl72" style="height: 18.6667px; width: 330pt;" width="440" height="23">Total Cost of Sustainability
+            Initiatives</td>
+          <td style="text-align: right; height: 18.6667px;">${{d88}}</td>
+          <td style="text-align: right; height: 18.6667px;">${{e88}}</td>
+        </tr>
+        <tr style="height: 11.3056px;">
+          <td style="height: 11.3056px;">Total benefit (cost) from direct employee well-being initiatives</td>
+          <td style="height: 11.3056px; text-align: right;">${{d89}}</td>
+          <td style="height: 11.3056px; text-align: right;">${{e89}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <table
+      style="border-collapse: collapse; width: 100.031%; height: 38.5186px; border-width: 0px; margin-left: auto; margin-right: auto;"
+      border="1">
+      <colgroup>
+        <col style="width: 62.8496%;">
+        <col style="width: 37.2032%;">
+      </colgroup>
+      <tbody>
+        <tr style="height: 19.2593px;">
+          <td style="height: 19.2593px; border-width: 0px;"><span style="font-size: 14pt;">{{last_year}} Estimated Cost
+              Savings&nbsp;</span></td>
+          <td style="height: 19.2593px; border-width: 0px; text-align: right;"><span
+              style="font-size: 14pt;">${{d4}}</span></td>
+        </tr>
+        <tr style="height: 19.2593px; border-style: none;">
+          <td style="height: 19.2593px; border-width: 0px;"><span style="font-size: 14pt;">{{this_year}} Estimated Cost
+              Savings&nbsp;</span></td>
+          <td style="height: 19.2593px; border-width: 0px; text-align: right;"><span
+              style="font-size: 14pt;">${{e4}}</span></td>
+        </tr>
+        <tr>
+          <td style="border-width: 0px;" colspan="2">
+            <ul>
+              <li>Understanding Your ROSI Estimate
+                <ul>
+                  <li>This way they have a more even appearance</li>
+                  <li>Particularly when followed by more list items</li>
+                </ul>
+              </li>
+              <li>Next Steps
+                <ul>
+                  <li>Learn more about CSB's research on Employee Wellbeing</li>
+                  <li>CSB to compile resources for employee wellbeing</li>
+                  <li>CSB is working to make return on sustainability accessible and scalable for companies. Please
+                    share your feedback (positive or negative) on this tool with the team by emailing us at&nbsp;<a
+                      href="mailto:rosi@stern.nyu.edu">rosi@stern.nyu.edu</a>.<span style="font-size: 14pt;"><br></span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <p>WarmRegards,<br>NYU | STERN TEAM</p>
+  </div>
+</div>
