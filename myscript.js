@@ -1,6 +1,6 @@
 // init emailjs
 (function () {
-  emailjs.init("qP5xofdIk09EzRZL-");
+  emailjs.init("v0MtMT49hAnTjLXu2");
 })();
 
 window.onload = () => {
@@ -130,7 +130,7 @@ function sendMail() {
       .forEach((e) => (data[e.name] = e.value));
 
     emailjs
-      .send("service_e1vtpkc", "template_u1yjupb", data)
+      .send("service_xx786l4", "template_wss5I9c", data)
       .then((r) => {
         alert("Mail send successfully to " + usermail.value + ".");
       })
