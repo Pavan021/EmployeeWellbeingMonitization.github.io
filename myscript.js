@@ -1,6 +1,6 @@
 // init emailjs
 (function () {
-  emailjs.init("qP5xofdIk09EzRZL-");
+  emailjs.init("QaZaFNQG76cRE3K5_"); // Replace public key here
 })();
 
 window.onload = () => {
@@ -130,7 +130,7 @@ function sendMail() {
       .forEach((e) => (data[e.name] = e.value));
 
     emailjs
-      .send("service_e1vtpkc", "template_u1yjupb", data)
+      .send("service_lzhnihe", "template_2l5f1tr", data)  //Replace Service Id and Template ID here
       .then((r) => {
         alert("Mail send successfully to " + usermail.value + ".");
       })
