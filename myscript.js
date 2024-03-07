@@ -119,8 +119,8 @@ function sendMail() {
       from_name: "NYU|STERN TEAM",
       to_email: usermail.value,
       to_name: username.value,
-      last_year: "Year:" + document.getElementById("previousYear").value,
-      this_year: "Year:" + document.getElementById("currentYear").value,
+      last_year: document.getElementById("previousYear").value,
+      this_year: document.getElementById("currentYear").value,
       d4: document.getElementById("d4").innerText,
       e4: document.getElementById("e4").innerText,
     };
@@ -165,10 +165,10 @@ function fillYearDetail() {
 
 function setYear() {
   document.querySelectorAll("[data-last-year]").forEach((e) => {
-    e.innerText = "Year: " + document.getElementById("previousYear").value;
+    e.innerText = document.getElementById("previousYear").value;
   });
   document.querySelectorAll("[data-this-year]").forEach((e) => {
-    e.innerText = "Year: " + document.getElementById("currentYear").value;
+    e.innerText = document.getElementById("currentYear").value;
   });
 }
 
